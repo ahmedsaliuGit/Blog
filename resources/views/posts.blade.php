@@ -5,11 +5,16 @@
         <h1><a href="/posts/{{ $post->slug; }}">{!! $post->title !!}</a></h1>
 
         <div>
-            {{ $post->excerpt; }}
+            {!! $post->excerpt; !!}
 
         </div>
 
-        <p><a href="{{ url('/categories' . '/' . $post->category->slug) }}">{{ $post->category->name; }}</a></p>
+        <x-author-link>
+            <x-slot name="author_username">{{ $post->author->username }}</x-slot>
+            <x-slot name="author_name">{{ $post->author->name }}</x-slot>
+            <x-slot name="category_slug">{{ $post->category->slug }}</x-slot>
+            <x-slot name="category_name">{{ $post->category->name }}</x-slot>
+        </x-author-link>
 
     </article>
     @endforeach
