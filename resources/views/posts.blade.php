@@ -1,23 +1,17 @@
 <x-layout>
+    @include('_posts-header')
 
-    @foreach ($posts as $post)
-    <article>
-        <h1><a href="/posts/{{ $post->slug; }}">{!! $post->title !!}</a></h1>
+    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+        @if($posts->count())
+        <x-post-feature-card :post="$posts[0]" />
 
-        <div>
-            {!! $post->excerpt; !!}
-
-        </div>
-
-        <x-author-link>
-            <x-slot name="author_username">{{ $post->author->username }}</x-slot>
-            <x-slot name="author_name">{{ $post->author->name }}</x-slot>
-            <x-slot name="category_slug">{{ $post->category->slug }}</x-slot>
-            <x-slot name="category_name">{{ $post->category->name }}</x-slot>
-        </x-author-link>
-
-    </article>
-    @endforeach
+        @if($posts->count() > 1)
+        <x-posts-grid :posts="$posts" />
+        @endif
+        @else
+        <p class="text-center">No post at the moment, please check back later.</p>
+        @endif
+    </main>
 
 
 </x-layout>
