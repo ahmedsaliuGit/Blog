@@ -1,7 +1,7 @@
 <x-layout>
     <section class="px-6 py-8">
         <main class="max-w-lg mx-auto mt-10 bg-gray-100 border border-gray-200 rounded-xl p-6">
-            <h1 class="text-center font-bold text-xl">Login!</h1>
+            <x-form-title>Login!</x-form-title>
             <form method="POST" action="/login" class="mt-10">
                 @csrf
                 @if ($errors->any())
