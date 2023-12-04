@@ -7,23 +7,17 @@
                 <h2 class="ml-4">Do you want to participate?</h2>
             </header>
 
-            <div class="mt-4">
-                <textarea 
-                    name="body"
-                    rows="5"
-                    class="w-full text-sm focus:outline-none focus:ring"
-                    placeholder="Quick, think of something to say!"
-                    required></textarea>
-                
-                    @error('body')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-            </div>
+            <x-form.textarea
+                name="body"
+                noLabel="false"
+                rows="5"
+                class="text-sm focus:outline-none focus:ring"
+                placeholder="Quick, think of something to say!" />
 
             <div class="pt-6 mt-2 flex justify-end border-t border-gray-200">
-                <x-submit-button>
+                <x-form.button>
                     Post
-                </x-submit-button>
+                </x-form.button>
             </div>
         </form>
     </x-panel>
