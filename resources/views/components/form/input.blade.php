@@ -6,9 +6,7 @@
         class="border border-gray-200 p-2 w-full"
         name="{{ $name }}"
         id="{{ $name }}"
-        value="{{ old($name) }}"
-        {{ $attributes }}
-        required
+        {{ $attributes(['value' => old($name)]) }}
         >
     <x-form.error name="{{ $name }}" />
 </x-form.field>
