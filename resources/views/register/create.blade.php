@@ -4,6 +4,7 @@
             <h1 class="text-center font-bold text-xl">Register Form!</h1>
             <form method="POST" action="/register" class="mt-10">
                 @csrf
+                <x-form.input name="name" autocomplete="Full Name" required/>
                 <x-form.input name="username" />
                 <x-form.input name="email" type="email" autocomplete="username" />
                 <x-form.input name="password" type="password" autocomplete="new-password" />

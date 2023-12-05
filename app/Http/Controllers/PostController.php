@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-
 class PostController extends Controller
 {
     public function index() {
+        //request()->user()->can('admin'); // This is also possible
+        // $this->authorize('admin');
+
         return view('posts.index', [
             'posts' => Post::latest()
                 ->filter(request(['search', 'category', 'author']))
